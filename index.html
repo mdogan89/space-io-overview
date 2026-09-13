@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Space.io - a 3D real-time multiplayer mobile game available for publishing or acquisition discussion.">
+  <title>Space.io | Publishing & Acquisition Opportunity</title>
+  <style>
+    :root { --ink:#f7f9ff; --muted:#aab6d1; --blue:#6b8cff; --cyan:#55e6de; --line:rgba(201,215,255,.16); --panel:rgba(16,25,54,.78); --bg:#060916; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; color:var(--ink); background:var(--bg); font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; line-height:1.55; }
+    a { color:inherit; }
+    .shell { width:min(1120px, calc(100% - 40px)); margin:auto; }
+    .eyebrow { color:var(--cyan); font-size:.73rem; font-weight:800; letter-spacing:.16em; text-transform:uppercase; }
+    .button { display:inline-flex; align-items:center; justify-content:center; min-height:48px; padding:0 21px; border:1px solid transparent; border-radius:999px; text-decoration:none; font-size:.92rem; font-weight:800; transition:.2s ease; }
+    .button.primary { background:var(--cyan); color:#06121b; box-shadow:0 8px 28px rgba(85,230,222,.22); }
+    .button.primary:hover { transform:translateY(-2px); box-shadow:0 12px 34px rgba(85,230,222,.34); }
+    .button.secondary { border-color:var(--line); color:var(--ink); background:rgba(255,255,255,.03); }
+    .button.secondary:hover { border-color:rgba(255,255,255,.5); background:rgba(255,255,255,.08); }
+    nav { position:absolute; inset:0 0 auto; z-index:3; padding:23px 0; }
+    nav .shell { display:flex; justify-content:space-between; align-items:center; }
+    .wordmark { font-size:1.2rem; font-weight:900; letter-spacing:.06em; text-decoration:none; }
+    .nav-note { color:var(--muted); font-size:.82rem; }
+    .hero { position:relative; overflow:hidden; min-height:790px; display:grid; align-items:center; background:radial-gradient(circle at 80% 33%, rgba(69,106,255,.42), transparent 19%), radial-gradient(ellipse at 67% 73%, rgba(82,230,222,.14), transparent 26%), radial-gradient(circle at 19% 81%, rgba(73,102,255,.17), transparent 23%), linear-gradient(135deg, #090d22 0%, #0a1030 55%, #070b19 100%); }
+    .hero::before { content:""; position:absolute; inset:0; opacity:.7; background-image:radial-gradient(circle at 8% 18%, #e4efff 0 1px, transparent 1.7px), radial-gradient(circle at 36% 61%, #ffffff 0 1.2px, transparent 1.9px), radial-gradient(circle at 68% 14%, #98b6ff 0 1px, transparent 1.7px), radial-gradient(circle at 88% 73%, #ffffff 0 .85px, transparent 1.5px); background-size:127px 109px, 177px 151px, 211px 183px, 83px 97px; background-position:0 0, 20px 37px, 46px 12px, 8px 56px; mask-image:linear-gradient(to bottom, #000, transparent 91%); }
+    .hero::after { content:""; position:absolute; width:72vw; height:15vw; min-height:170px; right:-18vw; bottom:-4vw; border-radius:50%; transform:rotate(-16deg); background:radial-gradient(ellipse at center, rgba(120,148,255,.24), rgba(83,99,230,.08) 35%, transparent 68%); filter:blur(18px); }
+    .hero-grid { position:relative; z-index:1; display:grid; grid-template-columns:1.05fr .95fr; gap:50px; align-items:center; padding:135px 0 110px; }
+    h1, h2, h3, p { margin-top:0; } h1 { max-width:700px; margin:.28em 0 .38em; font-size:clamp(3.4rem, 8vw, 6.5rem); line-height:1; } h2 { font-size:clamp(2rem, 4vw, 3.15rem); line-height:1; margin:.22em 0 .5em; } h3 { font-size:1.05rem; margin-bottom:.38rem; }
+    .hero-copy > p { max-width:595px; font-size:1.08rem; color:#d3dcf4; line-height:1.7; }
+    .actions { display:flex; gap:12px; flex-wrap:wrap; margin-top:30px; }
+    .fact-row { display:flex; gap:25px; flex-wrap:wrap; margin-top:42px; }
+    .fact { padding-left:14px; border-left:2px solid var(--cyan); } .fact strong { display:block; font-size:1.33rem; letter-spacing:-.04em; } .fact span { display:block; color:var(--muted); font-size:.78rem; }
+    .game-visual { position:relative; min-height:440px; isolation:isolate; }
+    .game-visual::before { content:""; position:absolute; inset:0; z-index:-1; background:radial-gradient(ellipse at 68% 32%, rgba(112,149,255,.3), transparent 19%), radial-gradient(ellipse at 34% 62%, rgba(85,230,222,.13), transparent 26%); filter:blur(4px); }
+    .planet-horizon { position:absolute; width:820px; height:510px; right:-265px; bottom:-400px; border-radius:50%; transform:rotate(-12deg); background:radial-gradient(ellipse at 35% 4%, rgba(174,225,255,.9) 0 2%, rgba(107,174,255,.55) 6%, transparent 17%), radial-gradient(ellipse at 63% 26%, rgba(76,112,234,.6) 0 5%, transparent 16%), radial-gradient(ellipse at 33% 45%, rgba(91,231,220,.35) 0 7%, transparent 17%), linear-gradient(154deg, #4164d6 0%, #273f9d 35%, #121d58 67%, #080d2b 100%); box-shadow:inset 45px 40px 80px rgba(169,236,255,.2), inset -65px -48px 100px rgba(4,6,26,.83), 0 -15px 28px rgba(105,155,255,.36), 0 -34px 80px rgba(75,111,255,.23); mask-image:linear-gradient(to bottom, #000 0 25%, rgba(0,0,0,.72) 45%, transparent 65%); }
+    .planet-horizon::before { content:""; position:absolute; inset:0; opacity:.34; border-radius:50%; background:radial-gradient(ellipse at 24% 19%, rgba(227,247,255,.48) 0 2%, transparent 7%), radial-gradient(ellipse at 57% 16%, rgba(209,232,255,.25) 0 4%, transparent 11%), radial-gradient(ellipse at 71% 42%, rgba(9,14,65,.42) 0 4%, transparent 13%), radial-gradient(ellipse at 35% 59%, rgba(121,249,235,.2) 0 4%, transparent 15%); mix-blend-mode:soft-light; }
+    .planet-horizon::after { content:""; position:absolute; left:8%; top:-5px; width:70%; height:15px; border-radius:50%; background:linear-gradient(90deg, transparent, rgba(190,244,255,.92), transparent); filter:blur(4px); transform:rotate(5deg); }
+    .comet { position:absolute; width:90px; height:2px; border-radius:50%; background:linear-gradient(90deg, transparent, #e3fbff); filter:drop-shadow(0 0 5px #93d8ff); transform:rotate(-19deg); opacity:.8; } .comet-one { top:60px; left:5%; } .comet-two { top:315px; right:0; width:62px; opacity:.54; }
+    section { padding:100px 0; } .intro { max-width:680px; color:var(--muted); font-size:1.06rem; }
+    .metrics { display:grid; grid-template-columns:repeat(3, 1fr); gap:16px; margin-top:40px; } .metric { min-height:155px; padding:27px; border:1px solid var(--line); border-radius:16px; background:linear-gradient(150deg, rgba(38,55,115,.5), rgba(12,18,41,.6)); } .metric b { display:block; color:var(--cyan); font-size:2.15rem; letter-spacing:-.07em; line-height:1; margin-bottom:13px; } .metric span { color:var(--muted); font-size:.9rem; }
+    .split { display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:start; } .stack { display:grid; gap:14px; }.card { border:1px solid var(--line); border-radius:15px; padding:23px; background:var(--panel); } .card p { color:var(--muted); margin:0; font-size:.94rem; }
+    .opportunity { background:linear-gradient(100deg, rgba(49,71,157,.18), rgba(6,9,22,0)); border-top:1px solid var(--line); border-bottom:1px solid var(--line); } .opportunity-grid { display:grid; grid-template-columns:.85fr 1.15fr; gap:45px; align-items:center; } .opportunity-list { counter-reset:opportunity; display:grid; gap:2px; } .opportunity-item { counter-increment:opportunity; display:grid; grid-template-columns:52px 1fr; gap:14px; padding:19px 0; border-bottom:1px solid var(--line); } .opportunity-item::before { content:"0" counter(opportunity); color:var(--cyan); font-weight:900; font-size:.8rem; letter-spacing:.1em; padding-top:4px; } .opportunity-item p { color:var(--muted); margin-bottom:0; font-size:.93rem; }
+    .package { display:grid; grid-template-columns:repeat(2, 1fr); gap:14px; margin-top:35px; } .package-item { padding:19px 19px 19px 46px; position:relative; border-radius:12px; background:rgba(255,255,255,.035); color:#d8e0f5; } .package-item::before { content:"✓"; position:absolute; left:18px; color:var(--cyan); font-weight:900; }
+    .contact { padding:90px 0; text-align:center; background:radial-gradient(circle at 50% 0%, rgba(72,110,255,.25), transparent 45%); } .contact p { max-width:600px; margin:0 auto 27px; color:var(--muted); } footer { padding:24px 0; border-top:1px solid var(--line); color:#7783a0; font-size:.78rem; } footer .shell { display:flex; justify-content:space-between; gap:20px; } .direct-email { color:#aab6d1; text-decoration-color:rgba(170,182,209,.45); text-underline-offset:3px; } .direct-email:hover { color:var(--cyan); }
+    @media (max-width:760px) { .nav-note { display:none; } .hero { min-height:auto; } .hero-grid, .split, .opportunity-grid { grid-template-columns:1fr; gap:35px; } .hero-grid { padding:125px 0 65px; } .game-visual { min-height:350px; } .planet-horizon { width:620px; height:420px; right:-250px; bottom:-295px; } .metrics { grid-template-columns:1fr; } .package { grid-template-columns:1fr; } section { padding:70px 0; } footer .shell { display:block; } footer p { margin:0 0 8px; } }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <nav><div class="shell"><a class="wordmark" href="#top" aria-label="Space.io home">SPACE.IO</a><span class="nav-note">Publishing &amp; acquisition opportunity</span></div></nav>
+    <div id="top" class="shell hero-grid">
+      <div class="hero-copy">
+        <div class="eyebrow">Mobile multiplayer opportunity</div>
+        <h1>Space.io</h1>
+        <p>A 3D, real-time multiplayer arena game for mobile - built in Unity and available for publishing or acquisition discussion.</p>
+        <div class="actions"><a class="button primary" href="https://youtu.be/SPadDJFbWs8?si=m6b01HpJ-8brHvQe" target="_blank" rel="noopener">Watch full gameplay ↗</a><a class="button secondary" href="https://mdogan89.github.io/portfolio/#contact-me" target="_blank" rel="noopener">Contact the developer</a></div>
+        <div class="fact-row"><div class="fact"><strong>70,000+</strong><span>Google Play installs</span></div><div class="fact"><strong>3D</strong><span>Real-time multiplayer arena</span></div></div>
+      </div>
+      <div class="game-visual" aria-label="Stylized Space.io planetary arena illustration"><div class="planet-horizon"></div><span class="comet comet-one"></span><span class="comet comet-two"></span></div>
+    </div>
+  </header>
+
+  <main>
+    <section><div class="shell"><div class="eyebrow">At a glance</div><h2>A game foundation ready for a growth partner.</h2><p class="intro">Space.io is an Android-launched, eat-and-grow multiplayer arena game. The product package combines the game client, multiplayer and backend systems, original assets, and monetization integrations - leaving a publisher or acquirer positioned to focus on product optimization, content, and distribution.</p><div class="metrics"><article class="metric"><b>70K+</b><span>Google Play installs</span></article><article class="metric"><b>2</b><span>Deliberate Google Ads campaigns completed</span></article><article class="metric"><b>1.5 yrs</b><span>Solo development invested in the current foundation</span></article></div></div></section>
+
+    <section><div class="shell split"><div><div class="eyebrow">The game</div><h2>Competitive space combat with true 3D movement.</h2><p class="intro">The game’s arena format combines eat-and-grow progression with real-time multiplayer gameplay. Its 3D control model is a clear product characteristic and a focused area for onboarding and retention refinement.</p></div><div class="stack"><article class="card"><h3>Real-time multiplayer</h3><p>Photon Fusion powers authoritative multiplayer, with AWS-hosted Docker-based dedicated-server deployment scripts included.</p></article><article class="card"><h3>Live operations foundation</h3><p>Firebase services include Authentication, Firestore, Cloud Functions, Analytics, and Remote Config for server-side logic and tuning.</p></article><article class="card"><h3>Monetization systems</h3><p>AdMob placements, Unity IAP, and a VIP subscription system are integrated for future product and economy work.</p></article></div></div></section>
+
+    <section id="opportunity" class="opportunity"><div class="shell opportunity-grid"><div><div class="eyebrow">Why now</div><h2>Clear levers for a publisher-led next chapter.</h2><p class="intro">The technical groundwork is in place. The next gains are product and growth work rather than rebuilding the core stack.</p></div><div class="opportunity-list"><article class="opportunity-item"><div><h3>Refine onboarding and controls</h3><p>Improve the learning curve around 3D movement and sharpen early-player experience.</p></div></article><article class="opportunity-item"><div><h3>Develop progression and content</h3><p>Extend engagement with new maps, modes, ships, cosmetics, events, and seasonal updates.</p></div></article><article class="opportunity-item"><div><h3>Optimize the economy</h3><p>Use the existing ads, IAP, and VIP infrastructure as a base for monetization and offer testing.</p></div></article><article class="opportunity-item"><div><h3>Expand distribution</h3><p>Build on the Android launch, test creative and store assets, and evaluate iOS distribution from the existing cross-platform implementation.</p></div></article></div></div></section>
+
+    <section id="package"><div class="shell split"><div><div class="eyebrow">Transaction package</div><h2>What a partner can evaluate.</h2><p class="intro">Detailed metrics, a code walkthrough, and source access can be shared with qualified parties under an appropriate confidentiality process.</p></div><div class="package"><div class="package-item">Full Unity client source code</div><div class="package-item">Cloud Functions backend source</div><div class="package-item">Photon Fusion multiplayer setup</div><div class="package-item">Firebase and AWS infrastructure scripts</div><div class="package-item">Original game art and audio assets</div><div class="package-item">Google Play listing and install base</div><div class="package-item">Monetization integrations and systems</div><div class="package-item">Reasonable technical handover support</div></div></div></section>
+  </main>
+
+  <section class="contact"><div class="shell"><div class="eyebrow">Let’s talk</div><h2>Interested in publishing or acquiring Space.io?</h2><p>Request the gameplay reel, store link, data-room materials, or a technical walkthrough.</p><a class="button primary" href="https://mdogan89.github.io/portfolio/#contact-me" target="_blank" rel="noopener">Contact the developer</a></div></section>
+  <footer><div class="shell"><p>Confidential overview for publishing and acquisition discussions.</p><p>mdogan89 © 2026 Space.io</p> <p><a class="direct-email" href="mailto:mdogan89@hotmail.com">Direct email: mdogan89@hotmail.com</a></p></div></footer>
+</body>
+</html>
